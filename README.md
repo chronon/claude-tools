@@ -1,5 +1,7 @@
 # Claude Tools
 
+A Docker-based environment for running Claude Code CLI with common development tools and MCP servers pre-installed. Run Claude Code in an isolated container without installing dependencies locally.
+
 ### Build
 
 ```
@@ -9,13 +11,17 @@ docker build -t claude-tools .
 ### Run Example
 
 ```
-docker run -it --rm -v ".:/var/www" -w /var/www --network truephoto_default claude-tools npx claude
+# customize and use the `docker-claude` wrapper script
+docker-claude
+
+# or run directly
+docker run -it --rm -v ".:/workspace" claude-tools npx claude
 ```
 
 ### MCP Install Example
 
 ```
-docker-claude mcp add --transport stdio dbhub -- dbhub --readonly --transport stdio --dsn mariadb://docker:docker@mysql:3306/docker?sslmode=disable
+.claude/docker-claude mcp add --transport stdio dbhub -- npx @bytebase/dbhub --transport stdio --dsn "mariadb://docker:docker@mysql:3306/docker?sslmode=disable"
 ```
 
 ### Fish Command Alias

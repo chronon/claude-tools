@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-docker run -it --rm \
-	-v ".:/var/www" \
-	-w /var/www \
-	--network truephoto_default \
-	claude-tools \
-	npx claude "$@"
+docker_args=(
+  run -it --rm
+  # required: app mount
+  -v ".:/var/www"
+  # optional: docker socket mount (to run app docker commands)
+  -v "/var/run/docker.sock:/var/run/docker.sock"
+  # optional: workspace (default if unset is 'workspace')
+  -w /var/www
+  # optional: docker network access (dbhub mcp, etc.)
+  --network {YOUR_PROJECT_DOCKER_NETWORK}
+  # required: image name
+  claude-tools
+)
+
+docker "${docker_args[@]}" npx claude "$@"
