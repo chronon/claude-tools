@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run -it --rm \
+	-v ".:/var/www" \
+	-w /var/www \
+	--network truephoto_default \
+	claude-tools \
+	npx claude "$@"
