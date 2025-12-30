@@ -5,7 +5,8 @@ A Docker-based environment for running Claude Code CLI with common development t
 ### Build
 
 ```
-docker build -t claude-tools .
+# --no-cache to pull latest Claude Code
+docker build --no-cache -t claude-tools .
 ```
 
 ### Run Example
