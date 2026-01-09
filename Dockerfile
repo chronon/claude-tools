@@ -1,12 +1,13 @@
 FROM node:22-trixie-slim
 
 ARG CLAUDE_CODE_VERSION=latest
-ARG DBHUB_CODE_VERSION=0.13.0
+ARG DBHUB_CODE_VERSION=0.15.0
 ARG TASK_VERSION=3
 ARG PNPM_VERSION=10
 
 # Install system tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+  curl \
   docker-cli \
   fd-find \
   fzf \
