@@ -7,6 +7,7 @@ ARG PNPM_VERSION=10
 
 # Install system tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+  bubblewrap \
   ca-certificates \
   curl \
   docker-cli \
@@ -18,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gnupg2 \
   jq \
   ripgrep \
+  socat \
   unzip \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
