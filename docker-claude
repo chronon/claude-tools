@@ -14,4 +14,4 @@ docker_args=(
   claude-tools
 )
 
-docker "${docker_args[@]}" npx claude "$@"
+docker "${docker_args[@]}" claude "$@"

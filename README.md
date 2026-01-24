@@ -16,7 +16,7 @@ docker build --no-cache -t claude-tools .
 docker-claude
 
 # or run directly
-docker run -it --rm -v ".:/workspace" claude-tools npx claude
+docker run -it --rm -v ".:/workspace" claude-tools claude
 ```
 
 ### MCP Install Example
