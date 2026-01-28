@@ -11,12 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   curl \
   docker-cli \
-  fd-find \
-  fzf \
-  gh \
   git \
-  git-delta \
-  gnupg2 \
   jq \
   ripgrep \
   socat \
@@ -60,13 +55,10 @@ RUN npm install -g \
 
 # Set environment variables
 ENV PATH="/root/.local/bin:${PATH}" \
-    CLAUDE_CONFIG_DIR=./.claude/config \
-    DISABLE_AUTOUPDATER=1 \
-    TERM=xterm-256color \
-    COLORTERM=truecolor
-
-# Configure git to use delta
-RUN git config --global core.pager delta
+  CLAUDE_CONFIG_DIR=./.claude/config \
+  DISABLE_AUTOUPDATER=1 \
+  TERM=xterm-256color \
+  COLORTERM=truecolor
 
 # Set working directory
 WORKDIR /workspace
